@@ -1,0 +1,1195 @@
+{
+  "schema": "moonshot-nba-commonteamroster-reconciliation/v1",
+  "season": 2027,
+  "checked_utc": "2026-10-13T20:16:19.984598+00:00",
+  "source_kind": "CACHED_NBA_STATS_COMMON_TEAM_ROSTER_30_TEAMS",
+  "source_url": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+  "source_sha256": "79bc14cc9b4c4106195fb350cd55647f4d06695a364a638fefa8594a22706b47",
+  "official_source_snapshot_fetched_utc": "2026-10-13T19:32:55Z",
+  "source_age_hours": 0.72,
+  "opening_night_teams": [
+    "BOS",
+    "DET",
+    "PHI",
+    "NYK",
+    "OKC",
+    "SAS"
+  ],
+  "official_nba_team_roster_snapshot_parsed": true,
+  "official_oct19_final_rosters_certified": false,
+  "oct20_game_day_availability_certified": false,
+  "paid_sgo_allowed": false,
+  "notes": [
+    "This is an NBA API CommonTeamRoster snapshot mirrored by a third-party NBA-data publisher.",
+    "NBA CommonTeamRoster is not proof of Oct 19 final league roster submission or Oct 20 availability.",
+    "No paid SGO, no Google Sheet writes, no automatic retries or scheduled triggers."
+  ],
+  "counts": {
+    "preseason_reference_players": 125,
+    "current_nba_roster_players_6teams": 125,
+    "current_team_roster_count_30teams": 30,
+    "new_on_current_six_team_rosters": 0,
+    "not_matched_to_current_team_roster": 0,
+    "source_unresolved_nba_ids_all_30teams": 1,
+    "source_unresolved_nba_ids_opening_six": 1,
+    "opening_six_valid_nba_id_rows": 124,
+    "statuses": {
+      "NBA_API_PLAYER_ID_UNRESOLVED": 1,
+      "NBA_ID_AND_TEAM_MATCH": 119,
+      "NBA_ID_RECOVERED_FROM_TEAM_ROSTER": 5
+    }
+  },
+  "team_counts": {
+    "BOS": 21,
+    "DET": 20,
+    "PHI": 21,
+    "NYK": 21,
+    "OKC": 21,
+    "SAS": 21
+  },
+  "source_id_integrity": "HAS_UNRESOLVED_IDS",
+  "unresolved_source_players_opening_six": [
+    {
+      "team": "PHI",
+      "team_id": "1610612755",
+      "player": "LeBron James",
+      "raw_player_id": "2544",
+      "reason": "INVALID_OR_MISSING_NBA_PLAYER_ID"
+    }
+  ],
+  "duplicate_player_ids_across_teams": {},
+  "issues": [
+    "1 upstream NBA PLAYER_ID fields unresolved across 30 teams",
+    "1 opening-six NBA roster players have unresolved NBA IDs"
+  ],
+  "players": [
+    {
+      "team": "BOS",
+      "player": "Milos Uzan",
+      "nba_player_id": "1642870",
+      "prior_nba_id": "1642870",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Hayden Gray",
+      "nba_player_id": "1643060",
+      "prior_nba_id": "1643060",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Tucker DeVries",
+      "nba_player_id": "1643620",
+      "prior_nba_id": "1643620",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Jayson Tatum",
+      "nba_player_id": "1628369",
+      "prior_nba_id": "1628369",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Mitchell Robinson",
+      "nba_player_id": "1629011",
+      "prior_nba_id": "1629011",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Derrick White",
+      "nba_player_id": "1628401",
+      "prior_nba_id": "1628401",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Payton Pritchard",
+      "nba_player_id": "1630202",
+      "prior_nba_id": "1630202",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Chris Cenac Jr.",
+      "nba_player_id": "1643416",
+      "prior_nba_id": "1643416",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Paul George",
+      "nba_player_id": "202331",
+      "prior_nba_id": "202331",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Ron Harper Jr.",
+      "nba_player_id": "1631199",
+      "prior_nba_id": "1631199",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Dillon Mitchell",
+      "nba_player_id": "1641759",
+      "prior_nba_id": "1641759",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Devin Carter",
+      "nba_player_id": "1642269",
+      "prior_nba_id": "1642269",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Jordan Walsh",
+      "nba_player_id": "1641775",
+      "prior_nba_id": "1641775",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Hugo González",
+      "nba_player_id": "1642864",
+      "prior_nba_id": "1642864",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Sam Hauser",
+      "nba_player_id": "1630573",
+      "prior_nba_id": "1630573",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Gabe McGlothan",
+      "nba_player_id": "1642440",
+      "prior_nba_id": "1642440",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Mike Conley",
+      "nba_player_id": "201144",
+      "prior_nba_id": "201144",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Luka Garza",
+      "nba_player_id": "1630568",
+      "prior_nba_id": "1630568",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Baylor Scheierman",
+      "nba_player_id": "1631248",
+      "prior_nba_id": "1631248",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Amari Williams",
+      "nba_player_id": "1642873",
+      "prior_nba_id": "1642873",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "BOS",
+      "player": "Neemias Queta",
+      "nba_player_id": "1629674",
+      "prior_nba_id": "1629674",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Ugonna Onyenso",
+      "nba_player_id": "1642391",
+      "prior_nba_id": null,
+      "status": "NBA_ID_RECOVERED_FROM_TEAM_ROSTER",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "John Ukomadu",
+      "nba_player_id": "1642578",
+      "prior_nba_id": "1642578",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Brice Williams",
+      "nba_player_id": "1642924",
+      "prior_nba_id": "1642924",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Jalen Duren",
+      "nba_player_id": "1631105",
+      "prior_nba_id": "1631105",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Cade Cunningham",
+      "nba_player_id": "1630595",
+      "prior_nba_id": "1630595",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Isaac Jones",
+      "nba_player_id": "1642403",
+      "prior_nba_id": "1642403",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Ronald Holland II",
+      "nba_player_id": "1641842",
+      "prior_nba_id": "1641842",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Paul Reed",
+      "nba_player_id": "1630194",
+      "prior_nba_id": "1630194",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Chaz Lanier",
+      "nba_player_id": "1642404",
+      "prior_nba_id": "1642404",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Ausar Thompson",
+      "nba_player_id": "1641709",
+      "prior_nba_id": "1641709",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Taurean Prince",
+      "nba_player_id": "1627752",
+      "prior_nba_id": "1627752",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Elijah Harkless",
+      "nba_player_id": "1641989",
+      "prior_nba_id": "1641989",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Isaiah Joe",
+      "nba_player_id": "1630198",
+      "prior_nba_id": "1630198",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "John Collins",
+      "nba_player_id": "1628381",
+      "prior_nba_id": "1628381",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Ebuka Okorie",
+      "nba_player_id": "1643536",
+      "prior_nba_id": "1643536",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Daniss Jenkins",
+      "nba_player_id": "1642450",
+      "prior_nba_id": "1642450",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Kevin Huerter",
+      "nba_player_id": "1628989",
+      "prior_nba_id": "1628989",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Javonte Green",
+      "nba_player_id": "1629750",
+      "prior_nba_id": "1629750",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Tolu Smith",
+      "nba_player_id": "1642449",
+      "prior_nba_id": "1642449",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "DET",
+      "player": "Duncan Robinson",
+      "nba_player_id": "1629130",
+      "prior_nba_id": "1629130",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Jameer Nelson Jr.",
+      "nba_player_id": "1642392",
+      "prior_nba_id": "1642392",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Saint Thomas",
+      "nba_player_id": "1643148",
+      "prior_nba_id": "1643148",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Duke Miles",
+      "nba_player_id": "1643575",
+      "prior_nba_id": "1643575",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Labaron Philon",
+      "nba_player_id": "1642889",
+      "prior_nba_id": "1642889",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Tyrese Maxey",
+      "nba_player_id": "1630178",
+      "prior_nba_id": "1630178",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Dillon Jones",
+      "nba_player_id": "1641794",
+      "prior_nba_id": "1641794",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Kentavious Caldwell-Pope",
+      "nba_player_id": "203484",
+      "prior_nba_id": "203484",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Caleb Love",
+      "nba_player_id": "1631126",
+      "prior_nba_id": "1631126",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Anfernee Simons",
+      "nba_player_id": "1629014",
+      "prior_nba_id": "1629014",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Jaylen Brown",
+      "nba_player_id": "1627759",
+      "prior_nba_id": "1627759",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Justin Edwards",
+      "nba_player_id": "1642348",
+      "prior_nba_id": "1642348",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Rayan Rupert",
+      "nba_player_id": "1641712",
+      "prior_nba_id": "1641712",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Joel Embiid",
+      "nba_player_id": "203954",
+      "prior_nba_id": "203954",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Dominick Barlow",
+      "nba_player_id": "1631230",
+      "prior_nba_id": "1631230",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Adem Bona",
+      "nba_player_id": "1641737",
+      "prior_nba_id": "1641737",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Jabari Walker",
+      "nba_player_id": "1631133",
+      "prior_nba_id": "1631133",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Dean Wade",
+      "nba_player_id": "1629731",
+      "prior_nba_id": "1629731",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Ariel Hukporti",
+      "nba_player_id": "1630574",
+      "prior_nba_id": "1630574",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "VJ Edgecombe",
+      "nba_player_id": "1642845",
+      "prior_nba_id": "1642845",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "Tacko Fall",
+      "nba_player_id": "1629605",
+      "prior_nba_id": null,
+      "status": "NBA_ID_RECOVERED_FROM_TEAM_ROSTER",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Jaden Akins",
+      "nba_player_id": "1643022",
+      "prior_nba_id": "1643022",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Andre Drummond",
+      "nba_player_id": "203083",
+      "prior_nba_id": "203083",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Jordan Clarkson",
+      "nba_player_id": "203903",
+      "prior_nba_id": "203903",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Miles McBride",
+      "nba_player_id": "1630540",
+      "prior_nba_id": "1630540",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Josh Hart",
+      "nba_player_id": "1628404",
+      "prior_nba_id": "1628404",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Pacôme Dadiet",
+      "nba_player_id": "1642359",
+      "prior_nba_id": "1642359",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Jose Alvarado",
+      "nba_player_id": "1630631",
+      "prior_nba_id": "1630631",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "OG Anunoby",
+      "nba_player_id": "1628384",
+      "prior_nba_id": "1628384",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Kevin McCullar Jr.",
+      "nba_player_id": "1641755",
+      "prior_nba_id": "1641755",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "James Wiseman",
+      "nba_player_id": "1630164",
+      "prior_nba_id": "1630164",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Bruce Brown",
+      "nba_player_id": "1628971",
+      "prior_nba_id": "1628971",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Jalen Brunson",
+      "nba_player_id": "1628973",
+      "prior_nba_id": "1628973",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Tony Bradley",
+      "nba_player_id": "1628396",
+      "prior_nba_id": "1628396",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Tyler Kolek",
+      "nba_player_id": "1642278",
+      "prior_nba_id": "1642278",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Drew Eubanks",
+      "nba_player_id": "1629234",
+      "prior_nba_id": "1629234",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Mikal Bridges",
+      "nba_player_id": "1628969",
+      "prior_nba_id": "1628969",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Ochai Agbaji",
+      "nba_player_id": "1630534",
+      "prior_nba_id": "1630534",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Karl-Anthony Towns",
+      "nba_player_id": "1626157",
+      "prior_nba_id": "1626157",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Landry Shamet",
+      "nba_player_id": "1629013",
+      "prior_nba_id": "1629013",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Mohamed Diawara",
+      "nba_player_id": "1642885",
+      "prior_nba_id": "1642885",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "NYK",
+      "player": "Tyler Nickel",
+      "nba_player_id": "1643589",
+      "prior_nba_id": "1643589",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Anthony Pritchard",
+      "nba_player_id": "1643208",
+      "prior_nba_id": "1643208",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Josh Dix",
+      "nba_player_id": "1643717",
+      "prior_nba_id": "1643717",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Christoph Tilly",
+      "nba_player_id": "1643754",
+      "prior_nba_id": "1643754",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Andrew Holifield",
+      "nba_player_id": "1643808",
+      "prior_nba_id": "1643808",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Shai Gilgeous-Alexander",
+      "nba_player_id": "1628983",
+      "prior_nba_id": "1628983",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Jared McCain",
+      "nba_player_id": "1642272",
+      "prior_nba_id": "1642272",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Jaylin Williams",
+      "nba_player_id": "1631119",
+      "prior_nba_id": "1631119",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Chet Holmgren",
+      "nba_player_id": "1631096",
+      "prior_nba_id": "1631096",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Jalen Williams",
+      "nba_player_id": "1631114",
+      "prior_nba_id": "1631114",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Alex Caruso",
+      "nba_player_id": "1627936",
+      "prior_nba_id": "1627936",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Thomas Sorber",
+      "nba_player_id": "1642850",
+      "prior_nba_id": null,
+      "status": "NBA_ID_RECOVERED_FROM_TEAM_ROSTER",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Otega Oweh",
+      "nba_player_id": "1642923",
+      "prior_nba_id": "1642923",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Bennett Stirtz",
+      "nba_player_id": "1642892",
+      "prior_nba_id": "1642892",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Aday Mara",
+      "nba_player_id": "1643530",
+      "prior_nba_id": "1643530",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Zhaire Smith",
+      "nba_player_id": "1629015",
+      "prior_nba_id": "1629015",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Cason Wallace",
+      "nba_player_id": "1641717",
+      "prior_nba_id": "1641717",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Brooks Barnhizer",
+      "nba_player_id": "1642964",
+      "prior_nba_id": "1642964",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Ajay Mitchell",
+      "nba_player_id": "1642349",
+      "prior_nba_id": "1642349",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Kenrich Williams",
+      "nba_player_id": "1629026",
+      "prior_nba_id": "1629026",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Nikola Topić",
+      "nba_player_id": "1642260",
+      "prior_nba_id": "1642260",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "OKC",
+      "player": "Isaiah Hartenstein",
+      "nba_player_id": "1628392",
+      "prior_nba_id": "1628392",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Jon Elmore",
+      "nba_player_id": "1631399",
+      "prior_nba_id": "1631399",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Malik Williams",
+      "nba_player_id": "1642013",
+      "prior_nba_id": null,
+      "status": "NBA_ID_RECOVERED_FROM_TEAM_ROSTER",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "R.J. Davis",
+      "nba_player_id": "1642930",
+      "prior_nba_id": "1642930",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Jordan McLaughlin",
+      "nba_player_id": "1629162",
+      "prior_nba_id": "1629162",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Victor Wembanyama",
+      "nba_player_id": "1641705",
+      "prior_nba_id": "1641705",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Dylan Harper",
+      "nba_player_id": "1642844",
+      "prior_nba_id": "1642844",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Keldon Johnson",
+      "nba_player_id": "1629640",
+      "prior_nba_id": "1629640",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "De'Aaron Fox",
+      "nba_player_id": "1628368",
+      "prior_nba_id": "1628368",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Taelon Peter",
+      "nba_player_id": "1643007",
+      "prior_nba_id": "1643007",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Stephon Castle",
+      "nba_player_id": "1642264",
+      "prior_nba_id": "1642264",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Luke Kornet",
+      "nba_player_id": "1628436",
+      "prior_nba_id": "1628436",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Tarris Reed Jr.",
+      "nba_player_id": "1643542",
+      "prior_nba_id": "1643542",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Carter Bryant",
+      "nba_player_id": "1642868",
+      "prior_nba_id": "1642868",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Maliq Brown",
+      "nba_player_id": "1643576",
+      "prior_nba_id": "1643576",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Ja'Kobi Gillespie",
+      "nba_player_id": "1643551",
+      "prior_nba_id": "1643551",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Jayden Quaintance",
+      "nba_player_id": "1643519",
+      "prior_nba_id": null,
+      "status": "NBA_ID_RECOVERED_FROM_TEAM_ROSTER",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Tobias Harris",
+      "nba_player_id": "202699",
+      "prior_nba_id": "202699",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Devin Vassell",
+      "nba_player_id": "1630170",
+      "prior_nba_id": "1630170",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "David Jones Garcia",
+      "nba_player_id": "1642357",
+      "prior_nba_id": "1642357",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Julian Champagnie",
+      "nba_player_id": "1630577",
+      "prior_nba_id": "1630577",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "SAS",
+      "player": "Harrison Barnes",
+      "nba_player_id": "203084",
+      "prior_nba_id": "203084",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "LeBron James",
+      "nba_player_id": null,
+      "prior_nba_id": "2544",
+      "status": "NBA_API_PLAYER_ID_UNRESOLVED",
+      "raw_source_player_id": "2544",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA API lists player but supplied no valid NBA ID; ID unverified, never auto-filled"
+    }
+  ],
+  "new_players": [],
+  "prior_players_not_matched": []
+}
