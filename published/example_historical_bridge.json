@@ -1,0 +1,146 @@
+{
+  "schema": "nba-moonshot-json-bridge/v1",
+  "season": 2026,
+  "season_label": "2025-26",
+  "exported_at_utc": "2026-10-13T17:42:43Z",
+  "source": "https://raw.githubusercontent.com/llimllib/nba_data/main/data/espn/2026/2025-10-21.json",
+  "demo_only": true,
+  "source_verification": "HISTORICAL_FIXTURE",
+  "roster_status": "RECENT_GAME_ASSOCIATIONS_NOT_GAME_DAY_CONFIRMED",
+  "counts": {
+    "games": 2,
+    "player_games": 10,
+    "roster": 0
+  },
+  "hash_algorithm": "sha256-lf-tab-keys-v1",
+  "records_sha256": "096f2d895269d0415d2419f0f80281d5773ff82b6a1f952fdc388bfa51a23992",
+  "games": [
+    {
+      "game_id": "0022500001",
+      "game_date": "2025-10-21",
+      "home_team": "OKC",
+      "away_team": "HOU",
+      "game_type": "regular_season"
+    },
+    {
+      "game_id": "0022500002",
+      "game_date": "2025-10-21",
+      "home_team": "LAL",
+      "away_team": "GSW",
+      "game_type": "regular_season"
+    }
+  ],
+  "roster": [],
+  "player_game_logs": [
+    {
+      "game_date": "2025-10-21",
+      "game_id": "0022500001",
+      "player_id": "1628983",
+      "player": "Shai Gilgeous-Alexander",
+      "team": "OKC",
+      "opponent": "HOU",
+      "minutes": 47.22,
+      "three_pa": 9,
+      "three_pm": 1
+    },
+    {
+      "game_date": "2025-10-21",
+      "game_id": "0022500001",
+      "player_id": "1630578",
+      "player": "Alperen Sengun",
+      "team": "HOU",
+      "opponent": "OKC",
+      "minutes": 48.88,
+      "three_pa": 8,
+      "three_pm": 5
+    },
+    {
+      "game_date": "2025-10-21",
+      "game_id": "0022500001",
+      "player_id": "1630598",
+      "player": "Aaron Wiggins",
+      "team": "OKC",
+      "opponent": "HOU",
+      "minutes": 20.53,
+      "three_pa": 5,
+      "three_pm": 2
+    },
+    {
+      "game_date": "2025-10-21",
+      "game_id": "0022500001",
+      "player_id": "1642349",
+      "player": "Ajay Mitchell",
+      "team": "OKC",
+      "opponent": "HOU",
+      "minutes": 14.6,
+      "three_pa": 6,
+      "three_pm": 3
+    },
+    {
+      "game_date": "2025-10-21",
+      "game_id": "0022500001",
+      "player_id": "201142",
+      "player": "Kevin Durant",
+      "team": "HOU",
+      "opponent": "OKC",
+      "minutes": 47.05,
+      "three_pa": 4,
+      "three_pm": 0
+    },
+    {
+      "game_date": "2025-10-21",
+      "game_id": "0022500002",
+      "player_id": "1627741",
+      "player": "Buddy Hield",
+      "team": "GSW",
+      "opponent": "LAL",
+      "minutes": 22.25,
+      "three_pa": 10,
+      "three_pm": 5
+    },
+    {
+      "game_date": "2025-10-21",
+      "game_id": "0022500002",
+      "player_id": "1629029",
+      "player": "Luka Doncic",
+      "team": "LAL",
+      "opponent": "GSW",
+      "minutes": 40.98,
+      "three_pa": 10,
+      "three_pm": 2
+    },
+    {
+      "game_date": "2025-10-21",
+      "game_id": "0022500002",
+      "player_id": "1630228",
+      "player": "Jonathan Kuminga",
+      "team": "GSW",
+      "opponent": "LAL",
+      "minutes": 32.9,
+      "three_pa": 6,
+      "three_pm": 4
+    },
+    {
+      "game_date": "2025-10-21",
+      "game_id": "0022500002",
+      "player_id": "1630559",
+      "player": "Austin Reaves",
+      "team": "LAL",
+      "opponent": "GSW",
+      "minutes": 36.33,
+      "three_pa": 5,
+      "three_pm": 1
+    },
+    {
+      "game_date": "2025-10-21",
+      "game_id": "0022500002",
+      "player_id": "201939",
+      "player": "Stephen Curry",
+      "team": "GSW",
+      "opponent": "LAL",
+      "minutes": 32.07,
+      "three_pa": 9,
+      "three_pm": 3
+    }
+  ]
+}
