@@ -90,6 +90,55 @@ class SnapshotTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"Duplicate NBA player ID"):
             normalize_payload(x,now=NOW)
 
+    def test_missing_philadelphia_player_id_quarantined_by_name(self):
+        x=fixture()
+        philly=x["rosters"][SCOPE["PHI"]]["resultSets"][0]["rowSet"]
+        philly[0][1]=None
+        snapshot=normalize_payload(x,now=NOW)
+        self.assertEqual(snapshot["source_counts"]["unresolved_nba_id_rows"],1)
+        entry=snapshot["unresolved_source_rows"][0]
+        self.assertEqual(entry["team"],"PHI")
+        self.assertEqual(entry["player"],philly[0][2])
+        self.assertEqual(entry["raw_player_id"],"")
+        self.assertEqual(len(snapshot["team_rosters"]["PHI"]),11)
+        self.assertNotIn(None,[p["nba_player_id"] for p in snapshot["team_rosters"]["PHI"]])
+        audit=reconcile(OLD,snapshot,checked=NOW)
+        self.assertFalse(audit["paid_sgo_allowed"])
+        self.assertEqual(audit["counts"]["source_unresolved_nba_ids_opening_six"],1)
+        self.assertEqual(audit["counts"]["statuses"]["NBA_API_PLAYER_ID_UNRESOLVED"],1)
+        missing=[p for p in audit["players"] if p["status"]=="NBA_API_PLAYER_ID_UNRESOLVED"]
+        self.assertEqual(len(missing),1)
+        self.assertIsNone(missing[0]["nba_player_id"])
+        self.assertEqual(missing[0]["player"],philly[0][2])
+
+    def test_nonstandard_player_id_zero_or_decimal_is_not_guessed(self):
+        x=fixture()
+        philly=x["rosters"][SCOPE["PHI"]]["resultSets"][0]["rowSet"]
+        philly[0][1]=0
+        philly[1][1]="1640001.0"
+        snapshot=normalize_payload(x,now=NOW)
+        self.assertEqual(snapshot["source_counts"]["unresolved_nba_id_rows"],2)
+        self.assertEqual({p["raw_player_id"] for p in snapshot["unresolved_source_rows"]},
+                         {"0","1640001.0"})
+        self.assertEqual(len(snapshot["team_rosters"]["PHI"]),10)
+
+    def test_excessive_missing_player_ids_still_block_source(self):
+        x=fixture()
+        for p in x["rosters"][SCOPE["PHI"]]["resultSets"][0]["rowSet"][:4]:
+            p[1]=None
+        with self.assertRaisesRegex(ValueError,"TOO_MANY_BAD_NBA_IDS"):
+            normalize_payload(x,now=NOW)
+
+    def test_unresolved_id_for_nonopening_team_still_disclosed(self):
+        x=fixture()
+        atl=x["rosters"]["1610612737"]["resultSets"][0]["rowSet"]
+        atl[0][1]=None
+        audit=reconcile(OLD,normalize_payload(x,now=NOW),checked=NOW)
+        self.assertEqual(audit["counts"]["source_unresolved_nba_ids_all_30teams"],1)
+        self.assertEqual(audit["counts"]["source_unresolved_nba_ids_opening_six"],0)
+        self.assertTrue(audit["issues"])
+        self.assertFalse(audit["paid_sgo_allowed"])
+
     def test_duplicate_id_across_teams_flagged(self):
         x=fixture()
         b=x["rosters"][SCOPE["BOS"]]["resultSets"][0]["rowSet"]
