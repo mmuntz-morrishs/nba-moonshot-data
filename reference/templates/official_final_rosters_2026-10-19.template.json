@@ -1,0 +1,17 @@
+{
+  "schema": "moonshot-official-release-evidence/v1",
+  "season": 2027,
+  "source_url": "",
+  "source_published_utc": null,
+  "document_path": "",
+  "document_sha256": "",
+  "rosters": {
+    "BOS": [],
+    "DET": [],
+    "PHI": [],
+    "NYK": [],
+    "OKC": [],
+    "SAS": []
+  },
+  "preparation_notes": "TEMPLATE ONLY. Fill using NBA-issued post-Oct 19 5PM ET final roster evidence, attach actual source file under reference/evidence/, calculate SHA256. Do not populate from preseason data. Manual authenticity and transcription review required. Does NOT unlock SGO."
+}
