@@ -106,7 +106,9 @@ def assemble(seed, observations, checked_utc=None):
             evidence = latest[observed_id]
             referenced_ids.add(observed_id)
             if old_id and observed_id != old_id:
+                selected_id = observed_id
                 status = "HISTORICAL_ID_CONFLICT"
+                note = "Conflicting NBA IDs: manual identity review required; do not auto-merge"
             elif not old_id:
                 selected_id = observed_id
                 status = "NAME_TEAM_MATCH_ID_RECOVERED"
