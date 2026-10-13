@@ -56,7 +56,7 @@ def check_observations(observations):
         require(bool(re.fullmatch(r"[0-9]{1,12}", pid)), "Bad observed player NBA ID")
         require(team in TEAMS, "Unexpected NBA team in observations")
         require(bool(re.fullmatch(r"2026-[0-9]{2}-[0-9]{2}|2027-[0-9]{2}-[0-9]{2}", date)), "Bad season date")
-        require(bool(re.fullmatch(r"00[12][0-9]{7}", gid)), "Invalid observed game ID")
+        require(bool(re.fullmatch(r"00[12][0-9]{7}", gid)) and gid[3:5] == "26", "Invalid observed game ID: not 2026-27")
         require(game_type in ("preseason", "regular_season"), "Not preseason/regular season")
         require(len(clean_name(p["player"])) >= 3, "Missing observed player name")
         key = (gid, pid)
