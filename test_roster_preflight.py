@@ -33,7 +33,7 @@ class RosterPreflightTests(unittest.TestCase):
         self.assertEqual(r["counts"]["statuses"]["ID_TEAM_OBSERVED_IN_GAME"],6)
         self.assertEqual(len(r["coverage"]),6)
         self.assertTrue(all(v["unique_ids_with_2026_27_game"]==1 for v in r["coverage"].values()))
-        self.assertEqual(r["status"],"PROVISIONAL_ID_CROSSWALK_COVERED")
+        self.assertEqual(r["status"],"PROVISIONAL_ID_CROSSWALK_INCOMPLETE")
 
     def test_paid_board_cannot_be_certified_by_preseason_games(self):
         r=assemble(SEED,sample())
@@ -85,6 +85,7 @@ class RosterPreflightTests(unittest.TestCase):
     def test_preseason_only_and_regular_season_allowed(self):
         rows=sample()
         rows[0]["game_type"]="regular_season"
+        rows[0]["game_id"]="0022600000"
         r=assemble(SEED,rows)
         self.assertEqual(r["counts"]["unique_observed_nba_ids"],6)
         rows[0]["game_type"]="playoffs"
