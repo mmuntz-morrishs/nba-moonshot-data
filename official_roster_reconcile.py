@@ -54,12 +54,17 @@ def parse_team_page(html,team):
         cells=tr.find_all("td",recursive=False)
         if not cells: continue
         first=cells[0]
-        a=None
-        for link in first.find_all("a",href=True):
-            if re.search(r"/player(?:s)?/[0-9]{5,12}(?:[/?#]|$)",link["href"]):
-                a=link;break
-        if a is None: a=first.find("a")
+        links=first.find_all("a",href=True)
+        player_links=[link for link in links if re.search(
+            r"/player(?:s)?/[0-9]{5,12}(?:[/?#]|$)",link["href"])]
+        # NBA.com may place a headshot/photo link before the player-name link.
+        named=[link for link in player_links if len(norm(link.get_text(" ",strip=True)))>=3]
+        a=named[0] if named else (player_links[0] if player_links else None)
+        if a is None:
+            a=next((link for link in links if len(norm(link.get_text(" ",strip=True)))>=3),None)
         name=(a.get_text(" ",strip=True) if a else first.get_text(" ",strip=True))
+        if not norm(name):
+            name=first.get_text(" ",strip=True)
         name=re.sub(r"\s+"," ",name).strip()
         fail(3<=len(norm(name))<=80,f"Invalid official roster name for {team}: {name!r}")
         pid=None
