@@ -94,3 +94,11 @@ The new check demands a fresh timestamp (at most 72h), exactly all 30 NBA team i
 On passing all checks, GitHub publishes `published/cached_nba_roster_reconciliation_2027.json` with source timestamp, binary SHA-256 provenance, detailed changes, and the **permanent** flags `official_oct19_final_rosters_certified=false`, `oct20_game_day_availability_certified=false`, and `paid_sgo_allowed=false`.
 
 The October 19 official league final roster release and October 20 game-day player availability still require separate checks. Never unlock paid SGO requests on this snapshot alone, and do not change the frozen Moonshot model, Google Sheet, or NBAPropSignal V2.
+
+### October 13 ID anomaly handling (cached NBA API)
+
+The first manual cache run **reached and decompressed** the raw NBA `CommonTeamRoster` snapshot, but stopped at an invalid `PLAYER_ID` in Philadelphia (team ID `1610612755`). This was a **player-level source anomaly**, not an HTTP failure. No report was published and SGO stayed blocked.
+
+The updated `cached_nba_roster_reconcile.py` safely **quarantines** up to three malformed/missing NBA IDs per 30-team roster when at least eight valid IDs remain. A quarantined entry retains the NBA-listed player name, team, source raw ID, and `NBA_API_PLAYER_ID_UNRESOLVED` status, with `nba_player_id=null`. It is never silently assigned the historical ID or counted as verified. Excessive anomalies, duplicate NBA IDs within a team, malformed names, stale snapshots, and missing teams still stop the workflow.
+
+The updated workflow has **18 offline checks** and validates the quarantined counts before publishing the provisional JSON. See [manual workflow](.github/workflows/cached-nba-roster-reconcile.yml). A workflow success only certifies parsing and safe reporting; it never certifies October 19 final rosters or October 20 availability. Paid SGO stays blocked.
