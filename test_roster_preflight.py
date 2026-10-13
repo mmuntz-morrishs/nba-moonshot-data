@@ -60,6 +60,23 @@ class RosterPreflightTests(unittest.TestCase):
         self.assertFalse(r["paid_board_allowed"])
         self.assertTrue(any("PRESEASON_TEAM_CONFLICT" in w for w in r["warnings"]))
 
+    def test_transfer_to_other_nba_team_is_flagged(self):
+        rows=sample()
+        rows[0]["team"]="GSW"
+        r=assemble(SEED,rows)
+        q=next(p for p in r["players"] if p["team"]=="BOS"
+               and p["seed_nba_player_id"]==rows[0]["player_id"])
+        self.assertEqual(q["status"],"PRESEASON_TEAM_CONFLICT")
+        self.assertNotIn("GSW",r["coverage"])
+        self.assertFalse(r["paid_board_allowed"])
+
+    def test_unseeded_other_team_is_not_added_to_opening_six(self):
+        rows=sample()
+        rows.append({"player_id":"1643992","player":"Out of Scope","team":"GSW",
+                     "game_date":"2026-10-12","game_id":"0012600888","game_type":"preseason"})
+        r=assemble(SEED,rows)
+        self.assertFalse(any(p["observed_nba_player_id"]=="1643992" for p in r["players"]))
+
     def test_conflicting_observed_id_preserved_and_marked(self):
         rows=sample()
         q=next(p for p in SEED["players"] if p["team"]=="BOS" and p["nba_player_id"])
