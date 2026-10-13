@@ -1,0 +1,103 @@
+name: Moonshot - Opening Week Final Roster and Game-Day Checks (manual only)
+
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: 'Self-test now; final-roster after Oct 19 4 PM CT; game-day on Oct 20'
+        required: true
+        type: choice
+        default: self-test
+        options:
+          - self-test
+          - final-roster
+          - game-day
+
+permissions:
+  contents: write
+
+jobs:
+  check-evidence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout Moonshot data only
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run opening-week safety tests (no network, no SGO)
+        run: python -m unittest -v test_opening_checks
+
+      - name: Always verify cached preseason baseline and phase boundaries
+        run: python opening_checks.py --mode self-check
+
+      - name: Validate post-deadline NBA final roster evidence (only when requested)
+        if: github.event.inputs.stage == 'final-roster'
+        run: |
+          python opening_checks.py --mode roster \
+            --official-manifest reference/official_final_rosters_2026-10-19.json \
+            --out published/opening_final_roster_audit_2027.json
+
+      - name: Validate three opening-night injury reports (only when requested)
+        if: github.event.inputs.stage == 'game-day'
+        run: |
+          python opening_checks.py --mode game-day \
+            --injury-manifest reference/game_day_injuries_2026-10-20.json \
+            --roster-audit published/opening_final_roster_audit_2027.json \
+            --out published/opening_game_day_audit_2027.json
+
+      - name: Revalidate audit flags before any provisional publication
+        if: github.event.inputs.stage != 'self-test'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          stage=os.environ['PHASE']
+          file=pathlib.Path('published/opening_final_roster_audit_2027.json' if stage=='final-roster'
+                            else 'published/opening_game_day_audit_2027.json')
+          assert file.is_file(), 'No valid audit output'
+          d=json.loads(file.read_text(encoding='utf-8'))
+          assert d['paid_sgo_allowed'] is False
+          if stage=='final-roster':
+            assert d['schema']=='moonshot-roster-release-audit/v1'
+            assert d['official_final_rosters_certified'] is False
+            assert d['game_day_availability_certified'] is False
+          else:
+            assert d['schema']=='moonshot-game-day-audit/v1'
+            assert d['game_day_availability_certified'] is False
+            assert d['roster_and_source_doc_human_verified'] is False
+            assert set(s['matchup'] for s in d['source_evidence'])=={'BOS@DET','PHI@NYK','OKC@SAS'}
+          print('PROVISIONAL AUDIT ONLY; no eligibility certification or paid SGO authorization')
+          PY
+        env:
+          PHASE: ${{ github.event.inputs.stage }}
+
+      - name: Commit provisional audit only after source checks pass
+        if: github.event.inputs.stage != 'self-test'
+        shell: bash
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          if [ "$PHASE" = "final-roster" ]; then
+            git add published/opening_final_roster_audit_2027.json
+          else
+            git add published/opening_game_day_audit_2027.json
+          fi
+          if git diff --cached --quiet; then
+            echo 'Evidence audit unchanged; no commit.'
+          else
+            git commit -m "Publish provisional Moonshot $PHASE evidence audit (SGO blocked)"
+            git push
+          fi
+          echo 'Document integrity checked. NBA provenance/transcription and game-day availability NOT independently certified. SGO blocked.' >> "$GITHUB_STEP_SUMMARY"
+        env:
+          PHASE: ${{ github.event.inputs.stage }}
+
+      - name: Report self-test readiness
+        if: github.event.inputs.stage == 'self-test'
+        run: |
+          echo 'Opening-week check logic passed offline tests. No NBA final-roster or injury report verified. No paid SGO, sheet edits, or scheduled triggers.' >> "$GITHUB_STEP_SUMMARY"
