@@ -90,6 +90,32 @@ class SnapshotTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"Duplicate NBA player ID"):
             normalize_payload(x,now=NOW)
 
+    def test_legitimate_four_digit_nba_id_not_quarantined(self):
+        x=fixture()
+        philly=x["rosters"][SCOPE["PHI"]]["resultSets"][0]["rowSet"]
+        # Regression: LeBron James has NBA ID 2544, not a malformed short ID.
+        philly[0][1]=2544
+        philly[0][2]="LeBron James"
+        snapshot=normalize_payload(x,now=NOW)
+        self.assertEqual(snapshot["source_counts"]["unresolved_nba_id_rows"],0)
+        player=next(p for p in snapshot["team_rosters"]["PHI"] if p["player"]=="LeBron James")
+        self.assertEqual(player["nba_player_id"],"2544")
+        audit=reconcile(OLD,snapshot,checked=NOW)
+        matching=[p for p in audit["players"] if p["team"]=="PHI" and p["player"]=="LeBron James"]
+        self.assertEqual(len(matching),1)
+        self.assertEqual(matching[0]["status"],"NBA_ID_AND_TEAM_MATCH")
+        self.assertEqual(matching[0]["nba_player_id"],"2544")
+        self.assertFalse(audit["paid_sgo_allowed"])
+
+    def test_zero_and_three_digit_ids_still_quarantined(self):
+        x=fixture()
+        philly=x["rosters"][SCOPE["PHI"]]["resultSets"][0]["rowSet"]
+        philly[0][1]=0
+        philly[1][1]=999
+        snapshot=normalize_payload(x,now=NOW)
+        self.assertEqual(snapshot["source_counts"]["unresolved_nba_id_rows"],2)
+        self.assertEqual({q["raw_player_id"] for q in snapshot["unresolved_source_rows"]},{"0","999"})
+
     def test_missing_philadelphia_player_id_quarantined_by_name(self):
         x=fixture()
         philly=x["rosters"][SCOPE["PHI"]]["resultSets"][0]["rowSet"]
