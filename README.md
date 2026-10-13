@@ -102,3 +102,11 @@ The first manual cache run **reached and decompressed** the raw NBA `CommonTeamR
 The updated `cached_nba_roster_reconcile.py` safely **quarantines** up to three malformed/missing NBA IDs per 30-team roster when at least eight valid IDs remain. A quarantined entry retains the NBA-listed player name, team, source raw ID, and `NBA_API_PLAYER_ID_UNRESOLVED` status, with `nba_player_id=null`. It is never silently assigned the historical ID or counted as verified. Excessive anomalies, duplicate NBA IDs within a team, malformed names, stale snapshots, and missing teams still stop the workflow.
 
 The updated workflow has **18 offline checks** and validates the quarantined counts before publishing the provisional JSON. See [manual workflow](.github/workflows/cached-nba-roster-reconcile.yml). A workflow success only certifies parsing and safe reporting; it never certifies October 19 final rosters or October 20 availability. Paid SGO stays blocked.
+
+### Four-digit NBA ID fix (October 13)
+
+The live cached NBA API reconciliation successfully parsed all 30 teams and all 125 six-team roster entries, but the first provisional report flagged Philadelphia's LeBron James as unverified. NBA ID **2544** is a valid four-digit NBA ID and was already observed in the current-season preseason game crosswalk. The original five-digit minimum was overly strict.
+
+The parser now accepts canonical positive **4- to 12-digit** decimal NBA IDs, never zeros, leading zeros, decimals, or blanks. The quarantine remains in place for genuinely malformed ID fields. The published historical provisional report may still show the former false-positive quarantine until the **manually triggered workflow is rerun successfully**.
+
+The roster test suite now contains **20 offline checks**, including the `2544` regression. Final opening-night roster membership and game-day availability remain unverified, and the paid SGO board remains blocked.
