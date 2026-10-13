@@ -1,0 +1,78 @@
+name: Moonshot - Validate and Export NBA Data (manual only)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify-and-export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out dedicated Moonshot repository
+        uses: actions/checkout@v4
+
+      - name: Configure Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install DuckDB read-only client
+        run: python -m pip install 'duckdb>=1.3,<2'
+
+      - name: Validate fixture, IDs, player teams and three-pointers
+        run: python -m unittest -v test_export
+
+      - name: Verify actual remote 2025-26 source against six ground-truth players
+        run: python export_bridge.py --mode historical-reference --out /tmp/moonshot-historical-remote.json
+
+      - name: Try current 2026-27 regular-season export
+        shell: bash
+        run: |
+          set +e
+          python export_bridge.py --mode current-season --out published/current_season_bridge.json > /tmp/moonshot-export.log 2>&1
+          result=$?
+          set -e
+          cat /tmp/moonshot-export.log
+          if [ "$result" -ne 0 ]; then
+            if grep -q 'NO_COMPLETED_REGULAR_SEASON_DATA' /tmp/moonshot-export.log; then
+              echo 'LIVE_READY=false' >> "$GITHUB_ENV"
+              echo 'NO COMPLETED 2026-27 REGULAR-SEASON DATA: publish is blocked. This is expected before opening night.' >> "$GITHUB_STEP_SUMMARY"
+            else
+              echo 'LIVE SOURCE ERROR: stopping without any publication.'
+              exit "$result"
+            fi
+          else
+            echo 'LIVE_READY=true' >> "$GITHUB_ENV"
+            echo '2026-27 regular-season export parsed. Current roster is still NOT game-day certified.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Validate published file structure without changing model
+        if: env.LIVE_READY == 'true'
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('published/current_season_bridge.json',encoding='utf-8'))
+          assert x['schema']=='nba-moonshot-json-bridge/v1'
+          assert x['season']==2027 and x['demo_only'] is False
+          assert x['counts']['player_games'] == len(x['player_game_logs']) > 0
+          assert x['counts']['games'] == len(x['games']) > 0
+          assert x['roster_status']=='RECENT_GAME_ASSOCIATIONS_NOT_GAME_DAY_CONFIRMED'
+          assert x['source_verification']=='REMOTE_UNCERTIFIED'
+          print('SCHEMA PASS. This does NOT certify an active game-day roster or a paid betting board.')
+          PY
+
+      - name: Publish current-season JSON only after all tests pass
+        if: env.LIVE_READY == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add published/current_season_bridge.json
+          if git diff --cached --quiet; then
+            echo 'JSON unchanged; no commit required.'
+          else
+            git commit -m 'Publish tested 2026-27 Moonshot raw player-game JSON (rosters provisional)'
+            git push
+          fi
