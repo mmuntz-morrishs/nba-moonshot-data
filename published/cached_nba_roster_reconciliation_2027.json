@@ -1,12 +1,12 @@
 {
   "schema": "moonshot-nba-commonteamroster-reconciliation/v1",
   "season": 2027,
-  "checked_utc": "2026-10-13T20:16:19.984598+00:00",
+  "checked_utc": "2026-10-13T20:19:31.251802+00:00",
   "source_kind": "CACHED_NBA_STATS_COMMON_TEAM_ROSTER_30_TEAMS",
   "source_url": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
   "source_sha256": "79bc14cc9b4c4106195fb350cd55647f4d06695a364a638fefa8594a22706b47",
   "official_source_snapshot_fetched_utc": "2026-10-13T19:32:55Z",
-  "source_age_hours": 0.72,
+  "source_age_hours": 0.78,
   "opening_night_teams": [
     "BOS",
     "DET",
@@ -30,12 +30,11 @@
     "current_team_roster_count_30teams": 30,
     "new_on_current_six_team_rosters": 0,
     "not_matched_to_current_team_roster": 0,
-    "source_unresolved_nba_ids_all_30teams": 1,
-    "source_unresolved_nba_ids_opening_six": 1,
-    "opening_six_valid_nba_id_rows": 124,
+    "source_unresolved_nba_ids_all_30teams": 0,
+    "source_unresolved_nba_ids_opening_six": 0,
+    "opening_six_valid_nba_id_rows": 125,
     "statuses": {
-      "NBA_API_PLAYER_ID_UNRESOLVED": 1,
-      "NBA_ID_AND_TEAM_MATCH": 119,
+      "NBA_ID_AND_TEAM_MATCH": 120,
       "NBA_ID_RECOVERED_FROM_TEAM_ROSTER": 5
     }
   },
@@ -47,21 +46,10 @@
     "OKC": 21,
     "SAS": 21
   },
-  "source_id_integrity": "HAS_UNRESOLVED_IDS",
-  "unresolved_source_players_opening_six": [
-    {
-      "team": "PHI",
-      "team_id": "1610612755",
-      "player": "LeBron James",
-      "raw_player_id": "2544",
-      "reason": "INVALID_OR_MISSING_NBA_PLAYER_ID"
-    }
-  ],
+  "source_id_integrity": "ALL_IDS_VALID",
+  "unresolved_source_players_opening_six": [],
   "duplicate_player_ids_across_teams": {},
-  "issues": [
-    "1 upstream NBA PLAYER_ID fields unresolved across 30 teams",
-    "1 opening-six NBA roster players have unresolved NBA IDs"
-  ],
+  "issues": [],
   "players": [
     {
       "team": "BOS",
@@ -545,6 +533,15 @@
       "player": "Joel Embiid",
       "nba_player_id": "203954",
       "prior_nba_id": "203954",
+      "status": "NBA_ID_AND_TEAM_MATCH",
+      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
+      "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
+    },
+    {
+      "team": "PHI",
+      "player": "LeBron James",
+      "nba_player_id": "2544",
+      "prior_nba_id": "2544",
       "status": "NBA_ID_AND_TEAM_MATCH",
       "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
       "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
@@ -1178,16 +1175,6 @@
       "status": "NBA_ID_AND_TEAM_MATCH",
       "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
       "note": "NBA CommonTeamRoster list only; not a final roster/availability confirmation"
-    },
-    {
-      "team": "PHI",
-      "player": "LeBron James",
-      "nba_player_id": null,
-      "prior_nba_id": "2544",
-      "status": "NBA_API_PLAYER_ID_UNRESOLVED",
-      "raw_source_player_id": "2544",
-      "source": "https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz",
-      "note": "NBA API lists player but supplied no valid NBA ID; ID unverified, never auto-filled"
     }
   ],
   "new_players": [],
