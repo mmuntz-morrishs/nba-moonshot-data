@@ -55,7 +55,7 @@ def parse_timestamp(raw,now=None):
          f"STALE_OR_FUTURE_ROSTER_SNAPSHOT: age_hours={age:.1f}, max={MAX_AGE_HOURS}")
     return value.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),round(age,2)
 
-def rows_for_response(data,team_id):
+def rows_for_response(data,team_id,quarantine=None):
     need(isinstance(data,dict),"Non-JSON team roster response")
     sets=data.get("resultSets")
     if isinstance(sets,list):
@@ -74,20 +74,33 @@ def rows_for_response(data,team_id):
     i_id,i_name=headers.index("PLAYER_ID"),headers.index("PLAYER")
     i_team=headers.index("TeamID") if "TeamID" in headers else (headers.index("TEAM_ID") if "TEAM_ID" in headers else None)
     output=[]
+    rejected=[]
     seen=set()
+    seen_names=set()
     for item in raw:
         need(isinstance(item,list) and len(item)==len(headers),"Malformed roster row: "+team_id)
         pid=str(item[i_id]) if item[i_id] is not None else ""
         pname=str(item[i_name] or "").strip()
-        need(bool(re.fullmatch(r"\d{5,12}",pid)),f"Invalid NBA player ID for {team_id}")
         need(len(nname(pname))>=3,f"Invalid NBA player name for {team_id}")
         if i_team is not None and item[i_team] is not None:
             need(str(item[i_team])==team_id,"Roster row has wrong NBA TEAM_ID")
+        key=nname(pname)
+        need(key not in seen_names,"Duplicate NBA player name on same roster "+team_id)
+        seen_names.add(key)
+        if not re.fullmatch(r"\d{5,12}",pid):
+            rejected.append({"team":ID_TO_ABBREV[team_id],"team_id":team_id,
+                             "player":pname,"raw_player_id":pid[:60],
+                             "reason":"INVALID_OR_MISSING_NBA_PLAYER_ID"})
+            continue
         need(pid not in seen,"Duplicate NBA player ID on same roster "+team_id)
         seen.add(pid)
         output.append({"team":ID_TO_ABBREV[team_id],"team_id":team_id,"player":pname,
                        "nba_player_id":pid})
-    need(10<=len(output)<=30,f"Implausible NBA team roster size: {team_id} has {len(output)}")
+    need(10<=len(raw)<=30,f"Implausible NBA team roster size: {team_id} has {len(raw)} source rows")
+    need(len(output)>=8 and len(rejected)<=3,
+         f"TOO_MANY_BAD_NBA_IDS: {team_id} valid={len(output)} unresolved={len(rejected)}")
+    if quarantine is not None:
+        quarantine.extend(rejected)
     return output
 
 def normalize_payload(payload,now=None,sha256=""):
@@ -97,15 +110,20 @@ def normalize_payload(payload,now=None,sha256=""):
          "INCOMPLETE_SOURCE: require exactly 30 official NBA team IDs")
     captured,age=parse_timestamp(payload.get("fetched"),now)
     full={}
+    unresolved=[]
     for team_id in sorted(teams):
-        full[ID_TO_ABBREV[team_id]]=rows_for_response(teams[team_id],team_id)
+        full[ID_TO_ABBREV[team_id]]=rows_for_response(teams[team_id],team_id,unresolved)
     ids=defaultdict(list)
     for team,roster in full.items():
         for p in roster: ids[p["nba_player_id"]].append(team)
     duplicate_ids={k:sorted(v) for k,v in ids.items() if len(v)>1}
     return {"source":UPSTREAM,"source_sha256":sha256,
             "source_fetched_utc":captured,"source_age_hours":age,
-            "team_rosters":full, "duplicate_player_ids_across_teams":duplicate_ids}
+            "team_rosters":full, "duplicate_player_ids_across_teams":duplicate_ids,
+            "unresolved_source_rows":unresolved,
+            "source_counts":{"valid_nba_id_rows":sum(map(len,full.values())),
+                             "unresolved_nba_id_rows":len(unresolved),
+                             "teams_with_unresolved":sorted(set(x["team"] for x in unresolved))}}
 
 def fetch_source():
     req=Request(UPSTREAM,headers={"Accept":"application/octet-stream","User-Agent":"Moonshot-Roster-Audit/1.0"})
@@ -135,6 +153,8 @@ def reconcile(previous,snapshot,checked=None):
     for team, roster in all30.items():
         for p in roster:official_by_id[p["nba_player_id"]].append(p)
     six_rows=[];status=Counter();matched_prev=set();official_only=[];missing=[]
+    unresolved=snapshot.get("unresolved_source_rows",[])
+    six_unresolved=[x for x in unresolved if x["team"] in SCOPE]
     for team in SCOPE:
         for current in all30[team]:
             pid,name=current["nba_player_id"],current["player"]
@@ -159,6 +179,19 @@ def reconcile(previous,snapshot,checked=None):
                              "prior_nba_id":prior_id,"status":state,
                              "source":UPSTREAM,
                              "note":"NBA CommonTeamRoster list only; not a final roster/availability confirmation"})
+    # Preserve source rows with invalid IDs as unverified named players. Never infer their ID.
+    for entry in six_unresolved:
+        team,name=entry["team"],entry["player"]
+        old=prev_by_team_name.get((team,nname(name)))
+        prior=(str(old.get("observed_nba_player_id") or old.get("seed_nba_player_id"))
+               if old and (old.get("observed_nba_player_id") or old.get("seed_nba_player_id")) else None)
+        if old: matched_prev.add((team,nname(name)))
+        status["NBA_API_PLAYER_ID_UNRESOLVED"]+=1
+        six_rows.append({"team":team,"player":name,"nba_player_id":None,
+                         "prior_nba_id":prior,"status":"NBA_API_PLAYER_ID_UNRESOLVED",
+                         "raw_source_player_id":entry.get("raw_player_id"),
+                         "source":UPSTREAM,
+                         "note":"NBA API lists player but supplied no valid NBA ID; ID unverified, never auto-filled"})
     for p in prev:
         key=(p["team"],nname(p["player"]))
         if key in matched_prev:continue
@@ -170,6 +203,10 @@ def reconcile(previous,snapshot,checked=None):
                         "now_listed_elsewhere":sorted(located),"status":state,
                         "note":"Not listed does not establish waiver, injury, or ineligibility"})
     issues=[]
+    if unresolved:
+        issues.append(f"{len(unresolved)} upstream NBA PLAYER_ID fields unresolved across 30 teams")
+    if six_unresolved:
+        issues.append(f"{len(six_unresolved)} opening-six NBA roster players have unresolved NBA IDs")
     if snapshot["duplicate_player_ids_across_teams"]:
         issues.append("Same NBA player ID appears on multiple current NBA team rosters")
     for s in ["ID_CONFLICT_MANUAL_REVIEW","DUPLICATE_NBA_ID_ACROSS_30_TEAMS"]:
@@ -192,8 +229,13 @@ def reconcile(previous,snapshot,checked=None):
                       "current_team_roster_count_30teams":len(all30),
                       "new_on_current_six_team_rosters":len(official_only),
                       "not_matched_to_current_team_roster":len(missing),
+                      "source_unresolved_nba_ids_all_30teams":len(unresolved),
+                      "source_unresolved_nba_ids_opening_six":len(six_unresolved),
+                      "opening_six_valid_nba_id_rows":len(six_rows)-len(six_unresolved),
                       "statuses":dict(sorted(status.items()))},
-            "team_counts":{t:len(all30[t]) for t in SCOPE},
+            "team_counts":{t:len(all30[t])+sum(x["team"]==t for x in six_unresolved) for t in SCOPE},
+            "source_id_integrity":"HAS_UNRESOLVED_IDS" if unresolved else "ALL_IDS_VALID",
+            "unresolved_source_players_opening_six":six_unresolved,
             "duplicate_player_ids_across_teams":snapshot["duplicate_player_ids_across_teams"],
             "issues":issues,"players":six_rows,
             "new_players":official_only,"prior_players_not_matched":missing}
@@ -210,7 +252,10 @@ def main():
     target=pathlib.Path(args.out)
     target.parent.mkdir(parents=True,exist_ok=True)
     target.write_text(json.dumps(output,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
-    print("CACHED NBA TEAM ROSTERS: source age "+str(snapshot["source_age_hours"])+"h; all 30 verified")
+    print("CACHED NBA TEAM ROSTERS: source age "+str(snapshot["source_age_hours"])+"h; all 30 team responses parsed") 
+    print("UNRESOLVED NBA IDs (all 30): "+str(len(snapshot["unresolved_source_rows"]))) 
+    for item in snapshot["unresolved_source_rows"]:
+        print("UNVERIFIED_ID: "+item["team"]+" | "+item["player"]+" | raw PLAYER_ID="+repr(item["raw_player_id"]))
     print("OPENING SIX: "+json.dumps(output["team_counts"]))
     print("STATUS COUNTS: "+json.dumps(output["counts"]["statuses"]))
     print("ISSUES: "+json.dumps(output["issues"]))
