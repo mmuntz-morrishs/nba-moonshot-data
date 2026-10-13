@@ -80,3 +80,17 @@ On success, compares rosters against [the 2026-27 NBA-ID preflight](published/ro
 **Permanent safety flags:** opening_night_final_roster_certified=false; game_day_availability_certified=false; paid_sgo_allowed=false. The NBA's official final opening-day roster release and October 20 game-day availability remain separate checks. Page absence does not prove waiver, trade, injury, or ineligibility.
 
 If GitHub Actions receives HTTP 403 or the roster page format changes, treat it as a blocked source. Once published, an NBA-issued final roster document can serve as the separate authoritative release; never use preseason box-score participation as proof of final roster status.
+
+## NBA.com direct HTTP 403: cached NBA API roster alternative
+
+The manual NBA.com roster-page workflow returned HTTP 403 on GitHub Actions; this is a **source-access failure**, not a rejected identity match. The failed workflow did not publish partial data. Do not retry the blocked NBA.com URL.
+
+**New one-request manual workflow:** [Moonshot - Verify Cached NBA Team Rosters](.github/workflows/cached-nba-roster-reconcile.yml). Open Actions, select it, and click Run workflow for main. It runs [14 offline tests](test_cached_nba_roster_reconcile.py) and then executes [cached_nba_roster_reconcile.py](cached_nba_roster_reconcile.py).
+
+Candidate: the basketball-data project's cached raw NBA `CommonTeamRoster` responses at `https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz`. Its upstream publisher's `pipeline/stats.py` stores the `fetched` timestamp plus a map of team IDs to raw NBA roster API responses. The URL **has not yet been verified reachable from GitHub Actions**. A failure must halt without publication.
+
+The new check demands a fresh timestamp (at most 72h), exactly all 30 NBA team identifiers, NBA `PLAYER_ID` and `PLAYER` headers, plausible roster row counts, no duplicate IDs on a single team, and comparison to our six-team 2026-27 ID audit. It flags conflicting/duplicated IDs, roster additions, missing names, and possible team moves. Team-page absence or roster absence does not prove release, injury, or ineligibility.
+
+On passing all checks, GitHub publishes `published/cached_nba_roster_reconciliation_2027.json` with source timestamp, binary SHA-256 provenance, detailed changes, and the **permanent** flags `official_oct19_final_rosters_certified=false`, `oct20_game_day_availability_certified=false`, and `paid_sgo_allowed=false`.
+
+The October 19 official league final roster release and October 20 game-day player availability still require separate checks. Never unlock paid SGO requests on this snapshot alone, and do not change the frozen Moonshot model, Google Sheet, or NBAPropSignal V2.
