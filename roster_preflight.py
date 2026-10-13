@@ -11,6 +11,9 @@ from collections import defaultdict
 
 CATALOG = "https://basketball-data.billmill.org/nba/nba.duckdb"
 TEAMS = ("BOS", "DET", "PHI", "NYK", "OKC", "SAS")
+ALL_TEAMS = frozenset(("ATL","BOS","BKN","CHA","CHI","CLE","DAL","DEN","DET","GSW",
+                       "HOU","IND","LAC","LAL","MEM","MIA","MIL","MIN","NOP","NYK",
+                       "OKC","ORL","PHI","PHX","POR","SAC","SAS","TOR","UTA","WAS"))
 SEASON = 2027
 SCHEMA = "nba-moonshot-roster-preflight/v1"
 
@@ -54,7 +57,7 @@ def check_observations(observations):
         gid = str(p["game_id"])
         game_type = str(p["game_type"])
         require(bool(re.fullmatch(r"[0-9]{1,12}", pid)), "Bad observed player NBA ID")
-        require(team in TEAMS, "Unexpected NBA team in observations")
+        require(team in ALL_TEAMS, "Unexpected NBA team in observations")
         require(bool(re.fullmatch(r"2026-[0-9]{2}-[0-9]{2}|2027-[0-9]{2}-[0-9]{2}", date)), "Bad season date")
         require(bool(re.fullmatch(r"00[12][0-9]{7}", gid)) and gid[3:5] == "26", "Invalid observed game ID: not 2026-27")
         require(game_type in ("preseason", "regular_season"), "Not preseason/regular season")
@@ -126,6 +129,8 @@ def assemble(seed, observations, checked_utc=None):
                        "note": note})
     # Also retain players on 2026-27 NBA team game logs not in the Oct 13 seed.
     for pid, p in latest.items():
+        if p["team"] not in TEAMS:
+            continue
         if pid in referenced_ids:
             continue
         if any(str(s.get("nba_player_id")) == pid for s in seed_players if s.get("nba_player_id")):
@@ -179,7 +184,7 @@ def remote_observations():
       JOIN nba.team_seasons t ON t.season=l.season AND t.team_id=l.team_id
       JOIN nba.player_seasons p ON p.season=l.season AND p.player_id=l.player_id
       WHERE l.season=2027 AND g.game_type IN ('preseason','regular_season')
-        AND t.is_nba AND t.nba_abbrev IN ('BOS','DET','PHI','NYK','OKC','SAS')
+        AND t.is_nba
         AND l.player_id IS NOT NULL
       ORDER BY l.game_date DESC, l.game_id DESC
     """
