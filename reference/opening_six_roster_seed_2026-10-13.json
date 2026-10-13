@@ -1,0 +1,1019 @@
+{
+  "schema": "moonshot-roster-seed/v1",
+  "season": 2027,
+  "season_label": "2026-27",
+  "captured_utc": "2026-10-13T02:27:03.950Z",
+  "origin": "NBA Moonshot LIVE ROSTER (Oct 13 NBA.com preseason snapshot)",
+  "scope_teams": [
+    "BOS",
+    "DET",
+    "PHI",
+    "NYK",
+    "OKC",
+    "SAS"
+  ],
+  "status": "HISTORICAL_PRESEASON_SNAPSHOT_UNCONFIRMED",
+  "meaning": "Historical player-id matches and NBA.com preseason page appearance; not current active eligibility or official roster confirmation",
+  "players": [
+    {
+      "team": "BOS",
+      "player": "Milos Uzan",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Hayden Gray",
+      "nba_player_id": "1643060",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Tucker DeVries",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Jayson Tatum",
+      "nba_player_id": "1628369",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Mitchell Robinson",
+      "nba_player_id": "1629011",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Derrick White",
+      "nba_player_id": "1628401",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Payton Pritchard",
+      "nba_player_id": "1630202",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Chris Cenac Jr.",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Paul George",
+      "nba_player_id": "202331",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Ron Harper Jr.",
+      "nba_player_id": "1631199",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Dillon Mitchell",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Devin Carter",
+      "nba_player_id": "1642269",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Jordan Walsh",
+      "nba_player_id": "1641775",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Hugo González",
+      "nba_player_id": "1642864",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Sam Hauser",
+      "nba_player_id": "1630573",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Gabe McGlothan",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Mike Conley",
+      "nba_player_id": "201144",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Luka Garza",
+      "nba_player_id": "1630568",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Baylor Scheierman",
+      "nba_player_id": "1631248",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Amari Williams",
+      "nba_player_id": "1642873",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "BOS",
+      "player": "Neemias Queta",
+      "nba_player_id": "1629674",
+      "source": "https://www.nba.com/team/1610612738",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Ugonna Onyenso",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "John Ukomadu",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Brice Williams",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Jalen Duren",
+      "nba_player_id": "1631105",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Cade Cunningham",
+      "nba_player_id": "1630595",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Isaac Jones",
+      "nba_player_id": "1642403",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Ronald Holland II",
+      "nba_player_id": "1641842",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Paul Reed",
+      "nba_player_id": "1630194",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Chaz Lanier",
+      "nba_player_id": "1642404",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Ausar Thompson",
+      "nba_player_id": "1641709",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Taurean Prince",
+      "nba_player_id": "1627752",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Elijah Harkless",
+      "nba_player_id": "1641989",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Isaiah Joe",
+      "nba_player_id": "1630198",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "John Collins",
+      "nba_player_id": "1628381",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Ebuka Okorie",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Daniss Jenkins",
+      "nba_player_id": "1642450",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Kevin Huerter",
+      "nba_player_id": "1628989",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Javonte Green",
+      "nba_player_id": "1629750",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Tolu Smith",
+      "nba_player_id": "1642449",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "DET",
+      "player": "Duncan Robinson",
+      "nba_player_id": "1629130",
+      "source": "https://www.nba.com/team/1610612765",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Jameer Nelson Jr.",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Saint Thomas",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Duke Miles",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Labaron Philon",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Tyrese Maxey",
+      "nba_player_id": "1630178",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Dillon Jones",
+      "nba_player_id": "1641794",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Kentavious Caldwell-Pope",
+      "nba_player_id": "203484",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Caleb Love",
+      "nba_player_id": "1631126",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Anfernee Simons",
+      "nba_player_id": "1629014",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Jaylen Brown",
+      "nba_player_id": "1627759",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Justin Edwards",
+      "nba_player_id": "1642348",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Rayan Rupert",
+      "nba_player_id": "1641712",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Joel Embiid",
+      "nba_player_id": "203954",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "LeBron James",
+      "nba_player_id": "2544",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Dominick Barlow",
+      "nba_player_id": "1631230",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Adem Bona",
+      "nba_player_id": "1641737",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Jabari Walker",
+      "nba_player_id": "1631133",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Dean Wade",
+      "nba_player_id": "1629731",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Ariel Hukporti",
+      "nba_player_id": "1630574",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "VJ Edgecombe",
+      "nba_player_id": "1642845",
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "PHI",
+      "player": "Tacko Fall",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612755",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Jaden Akins",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Andre Drummond",
+      "nba_player_id": "203083",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Jordan Clarkson",
+      "nba_player_id": "203903",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Miles McBride",
+      "nba_player_id": "1630540",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Josh Hart",
+      "nba_player_id": "1628404",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Pacôme Dadiet",
+      "nba_player_id": "1642359",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Jose Alvarado",
+      "nba_player_id": "1630631",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "OG Anunoby",
+      "nba_player_id": "1628384",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Kevin McCullar Jr.",
+      "nba_player_id": "1641755",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "James Wiseman",
+      "nba_player_id": "1630164",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Bruce Brown",
+      "nba_player_id": "1628971",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Jalen Brunson",
+      "nba_player_id": "1628973",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Tony Bradley",
+      "nba_player_id": "1628396",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Tyler Kolek",
+      "nba_player_id": "1642278",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Drew Eubanks",
+      "nba_player_id": "1629234",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Mikal Bridges",
+      "nba_player_id": "1628969",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Ochai Agbaji",
+      "nba_player_id": "1630534",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Karl-Anthony Towns",
+      "nba_player_id": "1626157",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Landry Shamet",
+      "nba_player_id": "1629013",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Mohamed Diawara",
+      "nba_player_id": "1642885",
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "NYK",
+      "player": "Tyler Nickel",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612752",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Anthony Pritchard",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Josh Dix",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Christoph Tilly",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Andrew Holifield",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Shai Gilgeous-Alexander",
+      "nba_player_id": "1628983",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Jared McCain",
+      "nba_player_id": "1642272",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Jaylin Williams",
+      "nba_player_id": "1631119",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Chet Holmgren",
+      "nba_player_id": "1631096",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Jalen Williams",
+      "nba_player_id": "1631114",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Alex Caruso",
+      "nba_player_id": "1627936",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Thomas Sorber",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Otega Oweh",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Bennett Stirtz",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Aday Mara",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Zhaire Smith",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Cason Wallace",
+      "nba_player_id": "1641717",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Brooks Barnhizer",
+      "nba_player_id": "1642964",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Ajay Mitchell",
+      "nba_player_id": "1642349",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Kenrich Williams",
+      "nba_player_id": "1629026",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Nikola Topić",
+      "nba_player_id": "1642260",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "OKC",
+      "player": "Isaiah Hartenstein",
+      "nba_player_id": "1628392",
+      "source": "https://www.nba.com/team/1610612760",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Jon Elmore",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Malik Williams",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "R.J. Davis",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Jordan McLaughlin",
+      "nba_player_id": "1629162",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Victor Wembanyama",
+      "nba_player_id": "1641705",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Dylan Harper",
+      "nba_player_id": "1642844",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Keldon Johnson",
+      "nba_player_id": "1629640",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "De'Aaron Fox",
+      "nba_player_id": "1628368",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Taelon Peter",
+      "nba_player_id": "1643007",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Stephon Castle",
+      "nba_player_id": "1642264",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Luke Kornet",
+      "nba_player_id": "1628436",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Tarris Reed Jr.",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Carter Bryant",
+      "nba_player_id": "1642868",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Maliq Brown",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Ja'Kobi Gillespie",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Jayden Quaintance",
+      "nba_player_id": null,
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "NO_2025_26_HISTORY",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Tobias Harris",
+      "nba_player_id": "202699",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Devin Vassell",
+      "nba_player_id": "1630170",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "David Jones Garcia",
+      "nba_player_id": "1642357",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Julian Champagnie",
+      "nba_player_id": "1630577",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    },
+    {
+      "team": "SAS",
+      "player": "Harrison Barnes",
+      "nba_player_id": "203084",
+      "source": "https://www.nba.com/team/1610612759",
+      "prior_history_match": "UNIQUE_NAME",
+      "source_retrieved_utc": "2026-10-13T02:27:03.950Z"
+    }
+  ]
+}
