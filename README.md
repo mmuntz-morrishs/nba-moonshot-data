@@ -66,3 +66,17 @@ The script uses NBA ID and team records from the new season's NBA preseason/regu
 The resulting [provisional roster audit](published/roster_preflight_2027.json) will only be created if 2026-27 observed game data is actually returned and checks pass. It includes evidence game dates and IDs plus coverage and issues. Any incomplete team coverage stays conspicuous; **no team or player receives active game-day certification**.
 
 The Oct 19 official roster cutoff remains a separate requirement. An NBA.com preseason listing or a preseason game does **not** prove eligibility/availability on Oct 20. A "successful" GitHub Actions run still does not permit SGO odds requests. No Sheet writes, no SGO requests, no scheduled updates, no NBAPropSignal V2 crossover. The existing historical-only Apps Script property \`MS09_BRIDGE_URL\` stays unchanged.
+
+## NBA.com official team PAGE reconciliation (manual only)
+
+**Before October 19:** NBA.com public team pages may still list preseason players, so page comparison is a provisional data-source test, **not final opening-night certification**.
+
+Workflow: [Moonshot - Reconcile Six NBA.com Team Rosters](.github/workflows/official-roster-reconcile.yml). Run it manually from Actions > this workflow > Run workflow > main.
+
+The manual job runs 14 offline parser/identity tests, then makes one HTTP GET to each of six public NBA.com team pages: Boston, Detroit, Philadelphia, New York, Oklahoma City, San Antonio. No retries, scheduled triggers, NBAPropSignal V2 access, SGO requests, or Google Sheet writes. All six pages must return HTTP 200 with exactly one plausible roster table of 10-25 players.
+
+On success, compares rosters against [the 2026-27 NBA-ID preflight](published/roster_preflight_2027.json), and publishes [a separate NBA.com page comparison](published/official_roster_page_comparison_2027.json) with sources, fetch timestamps, page SHA-256s, IDs, new names, missing names, and conflicts. A failed source produces no published comparison.
+
+**Permanent safety flags:** opening_night_final_roster_certified=false; game_day_availability_certified=false; paid_sgo_allowed=false. The NBA's official final opening-day roster release and October 20 game-day availability remain separate checks. Page absence does not prove waiver, trade, injury, or ineligibility.
+
+If GitHub Actions receives HTTP 403 or the roster page format changes, treat it as a blocked source. Once published, an NBA-issued final roster document can serve as the separate authoritative release; never use preseason box-score participation as proof of final roster status.
