@@ -1,0 +1,67 @@
+name: Moonshot - Verify Cached NBA Team Rosters (manual only)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cached-nba-commonteamroster:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout isolated Moonshot data repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run cached NBA roster parser and identity tests (no internet)
+        run: python -m unittest -v test_cached_nba_roster_reconcile
+
+      - name: Fetch source official NBA API snapshot from verified third-party mirror (one GET)
+        run: |
+          python cached_nba_roster_reconcile.py \
+            --preflight published/roster_preflight_2027.json \
+            --out published/cached_nba_roster_reconciliation_2027.json
+
+      - name: Verify provenance, freshness, 30-team coverage, and betting guards
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('published/cached_nba_roster_reconciliation_2027.json').read_text(encoding='utf-8'))
+          assert r['schema']=='moonshot-nba-commonteamroster-reconciliation/v1'
+          assert r['season']==2027
+          assert r['source_kind']=='CACHED_NBA_STATS_COMMON_TEAM_ROSTER_30_TEAMS'
+          assert r['source_url']=='https://basketball-data.billmill.org/nba/raw/stats/2027/team_rosters.json.gz'
+          assert r['source_age_hours']<=72
+          assert len(r['source_sha256'])==64
+          assert r['counts']['preseason_reference_players']==125
+          assert r['counts']['current_team_roster_count_30teams']==30
+          assert set(r['team_counts'])=={'BOS','DET','PHI','NYK','OKC','SAS'}
+          assert 60<=len(r['players'])<=180
+          assert r['official_oct19_final_rosters_certified'] is False
+          assert r['oct20_game_day_availability_certified'] is False
+          assert r['paid_sgo_allowed'] is False
+          print('CACHED NBA SOURCE RECONCILIATION PASS — official final roster NOT certified')
+          print('team_counts:',r['team_counts'])
+          print('status_counts:',r['counts']['statuses'])
+          print('issues:',r['issues'])
+          PY
+
+      - name: Publish provisional 30-team-source roster audit only after checks pass
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add published/cached_nba_roster_reconciliation_2027.json
+          if git diff --cached --quiet; then
+            echo 'Roster JSON unchanged; no commit.'
+          else
+            git commit -m 'Publish provisional 2026-27 NBA API roster snapshot comparison'
+            git push
+          fi
+          echo 'Cached NBA API roster reconciliation PASSED. Official Oct 19 final roster and Oct 20 game-day availability are NOT certified. SGO remains blocked.' >> "$GITHUB_STEP_SUMMARY"
