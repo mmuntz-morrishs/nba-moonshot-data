@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run 18 NBA roster parser, identity and missing-ID quarantine tests (no internet)
+      - name: Run 20 NBA roster ID-format, identity and quarantine tests (no internet)
         run: python -m unittest -v test_cached_nba_roster_reconcile
 
       - name: Fetch source official NBA API snapshot from verified third-party mirror (one GET)
