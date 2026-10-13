@@ -1,0 +1,44 @@
+{
+  "schema": "moonshot-game-day-injury-evidence/v1",
+  "season": 2027,
+  "local_game_date": "2026-10-20",
+  "games": [
+    {
+      "matchup": "BOS@DET",
+      "report_published_utc": null,
+      "source_url": "",
+      "document_path": "",
+      "document_sha256": "",
+      "teams_reported": [
+        "BOS",
+        "DET"
+      ],
+      "player_status": []
+    },
+    {
+      "matchup": "PHI@NYK",
+      "report_published_utc": null,
+      "source_url": "",
+      "document_path": "",
+      "document_sha256": "",
+      "teams_reported": [
+        "PHI",
+        "NYK"
+      ],
+      "player_status": []
+    },
+    {
+      "matchup": "OKC@SAS",
+      "report_published_utc": null,
+      "source_url": "",
+      "document_path": "",
+      "document_sha256": "",
+      "teams_reported": [
+        "OKC",
+        "SAS"
+      ],
+      "player_status": []
+    }
+  ],
+  "preparation_notes": "TEMPLATE ONLY. Each game requires an actual NBA-issued injury report from within 12h before its tipoff, attach source copy and digest. Absence from report is NOT confirmed availability. No SGO authorization."
+}
