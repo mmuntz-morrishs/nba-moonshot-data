@@ -19,7 +19,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Run cached NBA roster parser and identity tests (no internet)
+      - name: Run 18 NBA roster parser, identity and missing-ID quarantine tests (no internet)
         run: python -m unittest -v test_cached_nba_roster_reconcile
 
       - name: Fetch source official NBA API snapshot from verified third-party mirror (one GET)
@@ -44,12 +44,19 @@ jobs:
           assert r['counts']['current_team_roster_count_30teams']==30
           assert set(r['team_counts'])=={'BOS','DET','PHI','NYK','OKC','SAS'}
           assert 60<=len(r['players'])<=180
+          assert r['counts']['current_nba_roster_players_6teams']==len(r['players'])
+          assert r['counts']['source_unresolved_nba_ids_opening_six']==len(r['unresolved_source_players_opening_six'])
+          assert r['source_id_integrity'] in ('ALL_IDS_VALID','HAS_UNRESOLVED_IDS')
+          assert r['source_id_integrity']==('HAS_UNRESOLVED_IDS' if r['counts']['source_unresolved_nba_ids_all_30teams'] else 'ALL_IDS_VALID')
+          assert r['counts']['opening_six_valid_nba_id_rows']+r['counts']['source_unresolved_nba_ids_opening_six']==len(r['players'])
+          assert all(p['nba_player_id'] is None and p['status']=='NBA_API_PLAYER_ID_UNRESOLVED' for p in r['players'] if p['status']=='NBA_API_PLAYER_ID_UNRESOLVED')
           assert r['official_oct19_final_rosters_certified'] is False
           assert r['oct20_game_day_availability_certified'] is False
           assert r['paid_sgo_allowed'] is False
-          print('CACHED NBA SOURCE RECONCILIATION PASS — official final roster NOT certified')
+          print('CACHED NBA SOURCE PARSE COMPLETE — ANY BAD IDs QUARANTINED, NOT VERIFIED; official final roster NOT certified')
           print('team_counts:',r['team_counts'])
           print('status_counts:',r['counts']['statuses'])
+          print('quarantined opening-six:',r['unresolved_source_players_opening_six'])
           print('issues:',r['issues'])
           PY
 
@@ -64,4 +71,4 @@ jobs:
             git commit -m 'Publish provisional 2026-27 NBA API roster snapshot comparison'
             git push
           fi
-          echo 'Cached NBA API roster reconciliation PASSED. Official Oct 19 final roster and Oct 20 game-day availability are NOT certified. SGO remains blocked.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Cached NBA API roster snapshot PARSED; malformed player IDs, if any, quarantined as UNVERIFIED. Official Oct 19 final roster and Oct 20 game-day availability are NOT certified. SGO remains blocked.' >> "$GITHUB_STEP_SUMMARY"
