@@ -1,0 +1,70 @@
+name: Moonshot - Verify 2026-27 NBA IDs and Preseason Rosters (manual only)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  roster-id-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out isolated Moonshot data repository
+        uses: actions/checkout@v4
+
+      - name: Configure Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install read-only DuckDB client
+        run: python -m pip install 'duckdb>=1.3,<2'
+
+      - name: Run synthetic and actual-seed identity safety tests (free)
+        run: python -m unittest -v test_roster_preflight
+
+      - name: Compare 2026-27 played-game NBA IDs against October 13 provisional seed
+        run: python roster_preflight.py --seed reference/opening_six_roster_seed_2026-10-13.json --out published/roster_preflight_2027.json
+
+      - name: Verify current-season-only provenance, roster warnings and permanent SGO block
+        run: |
+          python - <<'PY'
+          import hashlib, json
+          from pathlib import Path
+          f=Path('published/roster_preflight_2027.json')
+          r=json.loads(f.read_text(encoding='utf-8'))
+          assert r['schema']=='nba-moonshot-roster-preflight/v1'
+          assert r['season']==2027
+          assert len(r['opening_night_teams'])==6
+          assert r['paid_board_allowed'] is False
+          assert r['roster_certified'] is False
+          assert r['game_day_active_certified'] is False
+          assert r['status'].startswith('PROVISIONAL_')
+          assert r['counts']['2026_27_player_game_observations'] > 0
+          assert r['counts']['reference_seed_players']==125
+          assert r['counts']['reference_seed_with_historical_id']==93
+          result=r['players']
+          canonical=json.dumps(result,sort_keys=True,ensure_ascii=False,separators=(',',':'))
+          assert hashlib.sha256(canonical.encode('utf-8')).hexdigest()==r['players_sha256']
+          statuses=r['counts']['statuses']
+          assert sum(statuses.values())==len(result)
+          print('PASS: current season records, provisional identity statuses, integrity hash and paid-board block')
+          print('STATUS:',r['status'])
+          print('COUNTS:',json.dumps(r['counts'],sort_keys=True))
+          print('WARNINGS:',json.dumps(r['warnings']))
+          PY
+
+      - name: Publish the PROVISIONAL roster audit (not live betting eligibility)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add published/roster_preflight_2027.json
+          if git diff --cached --quiet; then
+            echo 'Preflight JSON unchanged; no commit.'
+          else
+            git commit -m 'Publish provisional 2026-27 NBA ID and roster comparison audit'
+            git push
+          fi
+          echo 'Provisional 2026-27 ID and roster check complete; official game-day roster NOT verified. Paid SGO board remains BLOCKED.' >> "$GITHUB_STEP_SUMMARY"
