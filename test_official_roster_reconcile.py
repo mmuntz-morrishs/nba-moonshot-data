@@ -36,6 +36,18 @@ class TestOfficialReconciliation(unittest.TestCase):
         self.assertEqual(len(r),12)
         self.assertEqual(r[0]["nba_player_id"],"1643000")
 
+    def test_headshot_link_before_player_name(self):
+        links=[]
+        for i in range(12):
+            pid=1643200+i
+            links.append('<tr><td><a href="/player/'+str(pid)+'"><img src="headshot.png"></a>'
+                         +'<a href="/player/'+str(pid)+'">Actual Player '+str(i)+'</a></td>'
+                         +'<td>1</td><td>G</td></tr>')
+        html='<table><thead><tr><th>Player</th><th>#</th><th>Pos</th></tr></thead><tbody>'+''.join(links)+'</tbody></table>'
+        players=parse_team_page(html,"BOS")
+        self.assertEqual(players[0]["player"],"Actual Player 0")
+        self.assertEqual(players[0]["nba_player_id"],"1643200")
+
     def test_player_table_missing_must_fail(self):
         with self.assertRaisesRegex(ValueError,"Expected one NBA roster table"):
             parse_team_page("<html><table><thead><tr><th>Game</th></tr></thead></table></html>","BOS")
