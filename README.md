@@ -110,3 +110,26 @@ The live cached NBA API reconciliation successfully parsed all 30 teams and all 
 The parser now accepts canonical positive **4- to 12-digit** decimal NBA IDs, never zeros, leading zeros, decimals, or blanks. The quarantine remains in place for genuinely malformed ID fields. The published historical provisional report may still show the former false-positive quarantine until the **manually triggered workflow is rerun successfully**.
 
 The roster test suite now contains **20 offline checks**, including the `2544` regression. Final opening-night roster membership and game-day availability remain unverified, and the paid SGO board remains blocked.
+
+## Oct 19 official release / Oct 20 game-day evidence checks (built Oct 13)
+
+Manual [Opening Week Checks workflow](.github/workflows/opening-week-checks.yml). Choose `self-test`, `final-roster`, or `game-day`. **Run `self-test` now** to test the engine; it does NOT fetch, fabricate, or certify any future NBA report. All runs are manual `workflow_dispatch`; no schedules, retries, SGO requests, Google Sheet edits, or NBAPropSignal V2 crossover.
+
+Implementation: [opening_checks.py](opening_checks.py). Offline safety tests: [test_opening_checks.py](test_opening_checks.py). Official NBA source dates: **Oct 19 at 5 p.m. ET (4 p.m. Chicago)** is the opening-day roster deadline; Oct 20 regular-season games are BOS@DET (2 p.m. CT), PHI@NYK (6 p.m. CT), OKC@SAS (8:30 p.m. CT). See [NBA 2026-27 key dates](https://www.nba.com/news/key-dates) and [schedule announcement](https://pr.nba.com/2026-27-nba-regular-season-schedule/).
+
+### Final-roster stage on or after October 19
+
+1. **Manually rerun** the already working [Cached NBA Team Roster workflow](.github/workflows/cached-nba-roster-reconcile.yml) after the 4 p.m. Chicago cutoff. The refreshed cached source must report a timestamp on/after the cutoff and be less than 24 hours old at reconciliation time. The October 13 snapshot is deliberately too old.
+2. Acquire an actual NBA-issued **post-deadline final-roster document**. The system will not automatically invent a URL or assume an NBA team-page scrape is official final-roster evidence (direct NBA.com gave the GitHub runner HTTP 403).
+3. Use [official roster evidence template](reference/templates/official_final_rosters_2026-10-19.template.json) to prepare `reference/official_final_rosters_2026-10-19.json`, recording source URL and publication date, the document's **actual bytes** under `reference/evidence/`, its SHA-256 digest, and an explicitly transcribed set of six rosters with NBA IDs and `STANDARD` / `TWO_WAY` / `OTHER_REVIEW` contract labels.
+4. Select `final-roster` in the manual Opening Week workflow. Missing/incomplete evidence, wrong hashes, stale timestamps, unrecognized IDs, duplicated IDs, missing teams, and pre-deadline execution **stop without publication**. The provisional comparison is written to `published/opening_final_roster_audit_2027.json` only when validations pass.
+
+**Source limitation:** A SHA-256 match proves only that the file on disk is the one referenced in the manifest. It does NOT authenticate NBA authorship or prove the manually typed roster is faithfully copied. The result always marks `document_origin_verified=false`, `transcription_verified_against_document=false`, and `official_final_rosters_certified=false` pending independent manual review.
+
+### Game-day stage on October 20
+
+1. Supply the NBA-issued dated injury-report evidence for **each of the three opening-night games**, ideally the most recent report within 12 hours before that game's scheduled tip. Use [injury evidence template](reference/templates/game_day_injuries_2026-10-20.template.json) to create `reference/game_day_injuries_2026-10-20.json`. Keep NBA-owned source URLs, exact report issue times, document copies and SHA-256s. Provide only injury designation entries that are actually in the reports; never invent statuses.
+2. Select `game-day` in the same manually dispatched workflow. It checks matchup identities, injury timestamps, all six teams, NBA player IDs against the roster audit and duplicate statuses. It refuses pre-October-20 execution, future or stale reports, or attempts after tipoff.
+3. The published `published/opening_game_day_audit_2027.json` assigns `EXCLUDE` to listed OUT/DOUBTFUL/NOT_WITH_TEAM/NOT_YET_SUBMITTED players and `REVIEW` to every other player until independently confirmed. **A player absent from an injury report is NOT confirmed available.**
+
+Both stages leave `paid_sgo_allowed=false` regardless of successful parsing. These are evidence-audit utilities, NOT an automated final-certification or lineup-verification service. Continue the paper-only trial only after user approval and separate verification of game-day data. The frozen Moonshot model stays untouched.
