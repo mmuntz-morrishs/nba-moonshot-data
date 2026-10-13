@@ -87,7 +87,7 @@ def rows_for_response(data,team_id,quarantine=None):
         key=nname(pname)
         need(key not in seen_names,"Duplicate NBA player name on same roster "+team_id)
         seen_names.add(key)
-        if not re.fullmatch(r"\d{5,12}",pid):
+        if not re.fullmatch(r"[1-9]\d{3,11}",pid):
             rejected.append({"team":ID_TO_ABBREV[team_id],"team_id":team_id,
                              "player":pname,"raw_player_id":pid[:60],
                              "reason":"INVALID_OR_MISSING_NBA_PLAYER_ID"})
