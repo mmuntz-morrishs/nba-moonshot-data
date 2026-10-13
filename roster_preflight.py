@@ -59,6 +59,7 @@ def check_observations(observations):
         require(bool(re.fullmatch(r"[0-9]{1,12}", pid)), "Bad observed player NBA ID")
         require(team in ALL_TEAMS, "Unexpected NBA team in observations")
         require(bool(re.fullmatch(r"2026-[0-9]{2}-[0-9]{2}|2027-[0-9]{2}-[0-9]{2}", date)), "Bad season date")
+        require(dt.date(2026, 9, 1) <= dt.date.fromisoformat(date) <= dt.date(2027, 6, 30), "Outside 2026-27 season window")
         require(bool(re.fullmatch(r"00[12][0-9]{7}", gid)) and gid[3:5] == "26", "Invalid observed game ID: not 2026-27")
         require(game_type in ("preseason", "regular_season"), "Not preseason/regular season")
         require((gid.startswith("001") if game_type=="preseason" else gid.startswith("002")), "Game ID does not match game type")
@@ -185,7 +186,7 @@ def remote_observations():
       JOIN nba.player_seasons p ON p.season=l.season AND p.player_id=l.player_id
       WHERE l.season=2027 AND g.game_type IN ('preseason','regular_season')
         AND t.is_nba
-        AND l.player_id IS NOT NULL
+        AND l.player_id IS NOT NULL AND p.name IS NOT NULL
       ORDER BY l.game_date DESC, l.game_id DESC
     """
     rows = c.execute(sql).fetchall()
