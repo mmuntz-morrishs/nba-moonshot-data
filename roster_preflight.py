@@ -58,6 +58,7 @@ def check_observations(observations):
         require(bool(re.fullmatch(r"2026-[0-9]{2}-[0-9]{2}|2027-[0-9]{2}-[0-9]{2}", date)), "Bad season date")
         require(bool(re.fullmatch(r"00[12][0-9]{7}", gid)) and gid[3:5] == "26", "Invalid observed game ID: not 2026-27")
         require(game_type in ("preseason", "regular_season"), "Not preseason/regular season")
+        require((gid.startswith("001") if game_type=="preseason" else gid.startswith("002")), "Game ID does not match game type")
         require(len(clean_name(p["player"])) >= 3, "Missing observed player name")
         key = (gid, pid)
         require(key not in seen, "Duplicated observed player-game")
@@ -144,7 +145,7 @@ def assemble(seed, observations, checked_utc=None):
     coverage = {t:{"unique_ids_with_2026_27_game":len(ids_by_team[t]),
                    "games_with_observations":len(games_by_team[t])} for t in TEAMS}
     issues = ["Duplicate historical NBA ID assigned to multiple teams"] if duplicate_seed_ids else []
-    issues += [f"No verified recent 2026-27 game participation for {t}" for t in TEAMS if not ids_by_team[t]]
+    issues += [f"Insufficient 2026-27 player-game ID coverage for {t}: {len(ids_by_team[t])} IDs (minimum 8)" for t in TEAMS if len(ids_by_team[t]) < 8]
     issues += [f"Review {status_counts[x]} {x} rows" for x in
                ("PRESEASON_TEAM_CONFLICT","HISTORICAL_ID_CONFLICT","AMBIGUOUS_NAME_TEAM")
                if status_counts[x]]
